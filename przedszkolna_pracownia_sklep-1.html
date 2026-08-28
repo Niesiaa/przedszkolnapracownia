@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Przedszkolna Pracownia</title>
+  <meta name="description" content="Kolorowe materiały edukacyjne, karty pracy i pomoce PDF dla dzieci w wieku przedszkolnym." />
+  <style>
+    :root{
+      --bg:#fffaf7;
+      --paper:#ffffff;
+      --text:#2e2940;
+      --muted:#6e687d;
+      --pink:#ff7ea7;
+      --yellow:#ffd866;
+      --mint:#8edfc8;
+      --blue:#89c9ff;
+      --violet:#bea3ff;
+      --peach:#ffb28e;
+      --green:#70c995;
+      --line:#eadff0;
+      --shadow:0 14px 34px rgba(89,68,111,.10);
+      --radius:26px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(255,216,102,.25), transparent 22%),
+        radial-gradient(circle at top right, rgba(255,126,167,.18), transparent 22%),
+        linear-gradient(180deg,#fffaf7,#fffefc);
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
+    .wrap{max-width:1160px;margin:auto;padding:0 20px}
+
+    header{
+      position:sticky;top:0;z-index:30;
+      background:rgba(255,255,255,.88);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--line);
+    }
+    nav{
+      min-height:76px;
+      display:flex;align-items:center;justify-content:space-between;gap:18px;
+    }
+    .brand{display:flex;align-items:center;gap:11px;font-weight:900;font-size:1.15rem}
+    .logo{
+      width:44px;height:44px;border-radius:15px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--pink),var(--yellow));
+      box-shadow:var(--shadow);
+    }
+    .navlinks{display:flex;gap:8px;flex-wrap:wrap}
+    .navlinks a{padding:8px 12px;border-radius:999px;font-weight:700;color:#554f64}
+    .navlinks a:hover{background:#fff0f5}
+
+    .hero{padding:70px 0 48px}
+    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:34px;align-items:center}
+    .badge{
+      display:inline-block;background:#fff0f5;color:#a54c72;
+      border:1px solid #ffd2e1;padding:8px 13px;border-radius:999px;
+      font-size:.9rem;font-weight:800;margin-bottom:17px;
+    }
+    h1{
+      font-size:clamp(2.5rem,5vw,4.8rem);
+      line-height:1.03;letter-spacing:-.04em;margin:0 0 18px;
+    }
+    .lead{font-size:1.14rem;color:var(--muted);max-width:700px;margin:0}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:7px;
+      padding:13px 19px;border-radius:16px;font-weight:900;
+      border:1px solid transparent;cursor:pointer;
+    }
+    .primary{background:linear-gradient(135deg,var(--pink),var(--peach));color:white;box-shadow:var(--shadow)}
+    .secondary{background:white;border-color:#ffd1df;color:#8a4965;box-shadow:var(--shadow)}
+
+    .hero-card{
+      position:relative;overflow:hidden;
+      min-height:390px;border-radius:36px;padding:30px;
+      background:linear-gradient(145deg,#fff,#fff7fb);
+      border:1px solid var(--line);box-shadow:var(--shadow);
+    }
+    .bubble{position:absolute;border-radius:50%}
+    .b1{width:115px;height:115px;background:var(--yellow);right:22px;top:20px}
+    .b2{width:88px;height:88px;background:var(--mint);left:24px;bottom:28px}
+    .b3{width:72px;height:72px;background:var(--violet);right:52px;bottom:34px}
+    .hero-stack{position:relative;z-index:2;display:grid;gap:14px}
+    .mini{
+      background:rgba(255,255,255,.92);
+      border:1px solid var(--line);border-radius:20px;padding:17px;
+      max-width:330px;box-shadow:0 9px 22px rgba(80,62,99,.08);
+    }
+    .mini:nth-child(2){margin-left:auto}
+    .mini strong{display:block;margin-bottom:4px}
+
+    section{padding:58px 0}
+    .section-head{
+      display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:24px
+    }
+    .section-head h2{margin:0;font-size:clamp(1.8rem,3vw,2.5rem);letter-spacing:-.03em}
+    .section-head p{margin:0;color:var(--muted);max-width:620px}
+
+    .products{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .product{
+      background:white;border:1px solid var(--line);border-radius:26px;overflow:hidden;
+      box-shadow:var(--shadow);display:flex;flex-direction:column;
+    }
+    .preview{
+      min-height:180px;display:grid;place-items:center;
+      font-size:4rem;padding:20px;
+    }
+    .p1{background:linear-gradient(145deg,#fff0f5,#fff9fb)}
+    .p2{background:linear-gradient(145deg,#fff4c8,#fffaf0)}
+    .p3{background:linear-gradient(145deg,#e4f4ff,#f7fbff)}
+    .p4{background:linear-gradient(145deg,#e7faf3,#f7fffc)}
+    .p5{background:linear-gradient(145deg,#f0e7ff,#fbf9ff)}
+    .p6{background:linear-gradient(145deg,#ffe9dc,#fff8f3)}
+
+    .product-body{padding:20px;display:grid;gap:10px}
+    .label{
+      width:max-content;padding:6px 10px;border-radius:999px;font-size:.8rem;font-weight:900
+    }
+    .free{background:#e2f7ea;color:#2f7b4d}
+    .paid{background:#fff0f5;color:#a54e73}
+    .best{background:#fff2bf;color:#806200}
+    .product h3{margin:0;font-size:1.12rem}
+    .product p{margin:0;color:var(--muted)}
+    .price-row{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:4px}
+    .price{font-size:1.25rem;font-weight:900}
+    .small{font-size:.84rem;color:var(--muted)}
+    .buy{
+      display:inline-flex;justify-content:center;align-items:center;
+      padding:12px 14px;border-radius:14px;font-weight:900;color:white;background:#302b40
+    }
+    .download{background:var(--green)}
+
+    .packs{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .pack{
+      border-radius:30px;padding:28px;box-shadow:var(--shadow);
+      position:relative;overflow:hidden;
+    }
+    .pack.one{background:linear-gradient(145deg,#fff0f5,#fff)}
+    .pack.two{background:linear-gradient(145deg,#e6f8f2,#fff)}
+    .pack h3{font-size:1.5rem;margin:0 0 8px}
+    .pack p{color:var(--muted);margin:0 0 14px}
+    .pack-price{font-size:1.7rem;font-weight:900;margin:10px 0 16px}
+    .old{text-decoration:line-through;color:#999;font-size:1rem;margin-left:8px}
+
+    .freebies{
+      background:linear-gradient(145deg,#fff,#fff7ed);
+      border:1px solid var(--line);border-radius:30px;padding:28px;box-shadow:var(--shadow)
+    }
+
+    .notice{
+      margin-top:18px;padding:14px 16px;border-radius:16px;background:#f5f2f8;color:#675e75;font-size:.92rem
+    }
+
+    footer{
+      margin-top:40px;border-top:1px solid var(--line);
+      padding:34px 0 44px;text-align:center;color:var(--muted)
+    }
+
+    @media(max-width:900px){
+      .hero-grid,.products,.packs{grid-template-columns:1fr}
+      .navlinks{display:none}
+      .section-head{align-items:flex-start;flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#top"><span class="logo">🌈</span><span>Przedszkolna Pracownia</span></a>
+      <div class="navlinks">
+        <a href="#darmowe">Darmowe</a>
+        <a href="#sklep">Sklep</a>
+        <a href="#pakiety">Pakiety</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="badge">✨ Karty pracy i pomoce PDF</div>
+        <h1>Kolorowe materiały, które możesz pobrać i od razu wykorzystać.</h1>
+        <p class="lead">
+          Grafomotoryka, emocje, komunikacja, ćwiczenia poznawcze i materiały sezonowe dla dzieci w wieku przedszkolnym.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="#sklep">Zobacz sklep</a>
+          <a class="btn secondary" href="#darmowe">Pobierz darmowe materiały</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <span class="bubble b1"></span><span class="bubble b2"></span><span class="bubble b3"></span>
+        <div class="hero-stack">
+          <div class="mini">
+            <strong>✍️ Grafomotoryka dla 3-latków</strong>
+            <span>Proste linie, fale, łuki i pierwsze ćwiczenia ręki.</span>
+          </div>
+          <div class="mini">
+            <strong>🎁 Darmowe materiały</strong>
+            <span>Pobierz kilka kart bez opłat i sprawdź, czy ten styl Ci odpowiada.</span>
+          </div>
+          <div class="mini">
+            <strong>📚 Pełne zestawy PDF</strong>
+            <span>Gotowe pakiety do druku w atrakcyjnej cenie.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="darmowe">
+    <div class="wrap">
+      <div class="section-head">
+        <div><h2>Darmowe materiały</h2></div>
+        <p>Dobry sposób, żeby poznać styl kart przed zakupem pełnego zestawu.</p>
+      </div>
+
+      <div class="products">
+        <article class="product">
+          <div class="preview p1">↕️✏️</div>
+          <div class="product-body">
+            <span class="label free">DARMOWE</span>
+            <h3>Linie pionowe</h3>
+            <p>Pierwsze proste ćwiczenie grafomotoryczne dla 3-latków.</p>
+            <div class="price-row"><span class="price">0 zł</span><span class="small">1 karta PDF</span></div>
+            <a class="buy download" href="#" onclick="return false;">Pobierz za darmo</a>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="preview p2">↔️✏️</div>
+          <div class="product-body">
+            <span class="label free">DARMOWE</span>
+            <h3>Linie poziome</h3>
+            <p>Proste prowadzenie ręki od lewej do prawej.</p>
+            <div class="price-row"><span class="price">0 zł</span><span class="small">1 karta PDF</span></div>
+            <a class="buy download" href="#" onclick="return false;">Pobierz za darmo</a>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="preview p3">🌊✏️</div>
+          <div class="product-body">
+            <span class="label free">DARMOWE</span>
+            <h3>Duże fale</h3>
+            <p>Ćwiczenie płynnego ruchu dłoni i kontroli kredki.</p>
+            <div class="price-row"><span class="price">0 zł</span><span class="small">1 karta PDF</span></div>
+            <a class="buy download" href="#" onclick="return false;">Pobierz za darmo</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="sklep">
+    <div class="wrap">
+      <div class="section-head">
+        <div><h2>Najpopularniejsze zestawy</h2></div>
+        <p>Na start możemy umieścić kilka prostych produktów, a później dodawać kolejne.</p>
+      </div>
+
+      <div class="products">
+        <article class="product">
+          <div class="preview p4">✍️🌈</div>
+          <div class="product-body">
+            <span class="label best">BESTSELLER</span>
+            <h3>Grafomotoryka dla 3-latków – Zestaw 1</h3>
+            <p>10 kolorowych kart: linie, fale, łuki, zygzaki, koła i proste kształty.</p>
+            <div class="price-row"><span class="price">9,90 zł</span><span class="small">10 kart PDF</span></div>
+            <a class="buy" href="#" onclick="return false;">Kup PDF</a>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="preview p5">🧩🔎</div>
+          <div class="product-body">
+            <span class="label paid">PDF</span>
+            <h3>Percepcja wzrokowa – Pierwsze zadania</h3>
+            <p>Dopasowywanie obrazków, cienie, kategorie i znajdowanie par.</p>
+            <div class="price-row"><span class="price">12,90 zł</span><span class="small">15 kart PDF</span></div>
+            <a class="buy" href="#" onclick="return false;">Kup PDF</a>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="preview p6">🙂💬</div>
+          <div class="product-body">
+            <span class="label paid">PDF</span>
+            <h3>Emocje dla przedszkolaka</h3>
+            <p>Rozpoznawanie emocji i proste ćwiczenia do rozmów z dzieckiem.</p>
+            <div class="price-row"><span class="price">14,90 zł</span><span class="small">18 kart PDF</span></div>
+            <a class="buy" href="#" onclick="return false;">Kup PDF</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="notice">
+        Przyciski „Kup PDF” są na razie pokazowe. Żeby przyjmować płatności automatycznie, podłączymy później operatora płatności.
+      </div>
+    </div>
+  </section>
+
+  <section id="pakiety">
+    <div class="wrap">
+      <div class="section-head">
+        <div><h2>Pakiety w lepszej cenie</h2></div>
+        <p>Pakiety zachęcają do większego zakupu i mogą zwiększyć wartość jednego zamówienia.</p>
+      </div>
+
+      <div class="packs">
+        <div class="pack one">
+          <span class="label best">PAKIET</span>
+          <h3>Grafomotoryka 3-latka</h3>
+          <p>Zestaw 1 + Zestaw 2, czyli łącznie 20 kart do druku.</p>
+          <div class="pack-price">17,90 zł <span class="old">19,80 zł</span></div>
+          <a class="btn primary" href="#" onclick="return false;">Kup pakiet</a>
+        </div>
+
+        <div class="pack two">
+          <span class="label free">WIĘKSZY PAKIET</span>
+          <h3>Start Przedszkolaka</h3>
+          <p>Grafomotoryka + percepcja wzrokowa + emocje w jednym komplecie.</p>
+          <div class="pack-price">29,90 zł <span class="old">37,70 zł</span></div>
+          <a class="btn primary" href="#" onclick="return false;">Kup pakiet</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt">
+    <div class="wrap">
+      <div class="freebies">
+        <h2>Nowe materiały regularnie</h2>
+        <p>
+          W przyszłości możemy tu dodać zapis na newsletter, Instagram, Facebook oraz sekcję „Nowości”.
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Przedszkolna Pracownia • materiały edukacyjne PDF</div>
+</footer>
+</body>
+</html>
