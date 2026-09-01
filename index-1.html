@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Przedszkolna Pracownia</title>
+  <meta name="description" content="Kolorowe materiały edukacyjne PDF dla dzieci w wieku przedszkolnym. Grafomotoryka, emocje, dopasowywanie obrazków i materiały sezonowe.">
+  <style>
+    :root{--bg:#fffaf7;--text:#2f2940;--muted:#6f687d;--pink:#ff7ea7;--yellow:#ffd866;--mint:#8edfc8;--blue:#89c9ff;--peach:#ffb28e;--green:#71c996;--line:#eadff0;--shadow:0 14px 34px rgba(89,68,111,.10)}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:radial-gradient(circle at top left,rgba(255,216,102,.25),transparent 22%),radial-gradient(circle at top right,rgba(255,126,167,.18),transparent 22%),linear-gradient(180deg,#fffaf7,#fffefc);line-height:1.6}
+    a{text-decoration:none;color:inherit}.wrap{max-width:1160px;margin:auto;padding:0 20px}
+    header{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:900;font-size:1.15rem}
+    .logo{width:44px;height:44px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(135deg,var(--pink),var(--yellow));box-shadow:var(--shadow);font-size:1.25rem}
+    .navlinks{display:flex;gap:8px;flex-wrap:wrap}.navlinks a{padding:8px 12px;border-radius:999px;font-weight:700;color:#554f64}.navlinks a:hover{background:#fff0f5}
+    .hero{padding:70px 0 48px}.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:34px;align-items:center}
+    .badge{display:inline-block;background:#fff0f5;color:#a54c72;border:1px solid #ffd2e1;padding:8px 13px;border-radius:999px;font-size:.9rem;font-weight:800;margin-bottom:17px}
+    h1{font-size:clamp(2.5rem,5vw,4.8rem);line-height:1.03;letter-spacing:-.04em;margin:0 0 18px}
+    .lead{font-size:1.14rem;color:var(--muted);max-width:700px;margin:0}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:13px 19px;border-radius:16px;font-weight:900;border:1px solid transparent}
+    .primary{background:linear-gradient(135deg,var(--pink),var(--peach));color:white;box-shadow:var(--shadow)}.secondary{background:white;border-color:#ffd1df;color:#8a4965;box-shadow:var(--shadow)}
+    .hero-card{min-height:360px;border-radius:34px;padding:28px;background:linear-gradient(145deg,#fff,#fff7fb);border:1px solid var(--line);box-shadow:var(--shadow);display:grid;align-content:center;gap:14px}
+    .mini{background:white;border:1px solid var(--line);border-radius:20px;padding:17px;box-shadow:0 9px 22px rgba(80,62,99,.08)}.mini strong{display:block;margin-bottom:4px}
+    section{padding:58px 0}.section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:24px}.section-head h2{margin:0;font-size:clamp(1.8rem,3vw,2.5rem);letter-spacing:-.03em}.section-head p{margin:0;color:var(--muted);max-width:620px}
+    .categories{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.category{background:white;border:1px solid var(--line);border-radius:24px;padding:22px;box-shadow:var(--shadow)}
+    .cat-icon{width:56px;height:56px;display:grid;place-items:center;border-radius:18px;font-size:1.7rem;margin-bottom:14px}.pink{background:#ffe0eb}.mint{background:#def7ef}.blue{background:#e2f2ff}.yellow{background:#fff2c6}
+    .category h3{margin:0 0 7px}.category p{margin:0;color:var(--muted)}
+    .materials{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.material{background:white;border:1px solid var(--line);border-radius:26px;overflow:hidden;box-shadow:var(--shadow)}
+    .preview{min-height:185px;display:grid;place-items:center;font-size:4rem;padding:20px}.p1{background:linear-gradient(145deg,#fff0f5,#fff9fb)}.p2{background:linear-gradient(145deg,#e5f6ff,#f8fcff)}.p3{background:linear-gradient(145deg,#fff4c8,#fffaf0)}
+    .material-body{padding:20px;display:grid;gap:10px}.label{width:max-content;padding:6px 10px;border-radius:999px;font-size:.8rem;font-weight:900}.free{background:#e2f7ea;color:#2f7b4d}.soon{background:#f3edf7;color:#725b82}
+    .material h3{margin:0}.material p{margin:0;color:var(--muted)}.download{display:inline-flex;align-items:center;justify-content:center;padding:12px 14px;border-radius:14px;background:var(--green);color:white;font-weight:900;margin-top:4px}.disabled{background:#e6e1ea;color:#80788a;pointer-events:none}
+    .info{background:linear-gradient(145deg,#fff,#fff7ed);border:1px solid var(--line);border-radius:28px;padding:28px;box-shadow:var(--shadow)}.info h2{margin-top:0}.info p{margin-bottom:0;color:var(--muted)}
+    footer{margin-top:40px;border-top:1px solid var(--line);padding:34px 0 44px;text-align:center;color:var(--muted)}
+    @media(max-width:900px){.hero-grid,.categories,.materials{grid-template-columns:1fr}.navlinks{display:none}.section-head{align-items:flex-start;flex-direction:column}}
+  </style>
+</head>
+<body>
+<header><div class="wrap"><nav><a class="brand" href="#top"><span class="logo">🌈</span><span>Przedszkolna Pracownia</span></a><div class="navlinks"><a href="#kategorie">Kategorie</a><a href="#grafomotoryka">Grafomotoryka</a><a href="#emocje">Emocje</a><a href="#kontakt">Kontakt</a></div></nav></div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap hero-grid">
+  <div><div class="badge">✨ Materiały dla przedszkolaków</div><h1>Kolorowe karty pracy gotowe do pobrania i wydruku.</h1><p class="lead">Grafomotoryka, emocje, dopasowywanie obrazków oraz materiały sezonowe dla dzieci w wieku przedszkolnym.</p><div class="actions"><a class="btn primary" href="#grafomotoryka">Zobacz materiały</a><a class="btn secondary" href="#kategorie">Przeglądaj kategorie</a></div></div>
+  <div class="hero-card"><div class="mini"><strong>✍️ Grafomotoryka</strong>Linie, fale, łuki, zygzaki i ćwiczenia przygotowujące rękę do pisania.</div><div class="mini"><strong>🙂 Emocje</strong>Proste karty pomagające dzieciom rozpoznawać i nazywać emocje.</div><div class="mini"><strong>🧩 Dopasowywanie</strong>Ćwiczenia spostrzegawczości, par i percepcji wzrokowej.</div></div>
+</div></section>
+
+<section id="kategorie"><div class="wrap"><div class="section-head"><h2>Kategorie</h2><p>Materiały są pogrupowane tak, żeby łatwo było znaleźć odpowiednie ćwiczenie.</p></div>
+<div class="categories">
+  <div class="category"><div class="cat-icon pink">✍️</div><h3>Grafomotoryka</h3><p>Ćwiczenia ręki dla 3-, 4- i 5-latków.</p></div>
+  <div class="category"><div class="cat-icon mint">🙂</div><h3>Emocje</h3><p>Rozpoznawanie i nazywanie podstawowych emocji.</p></div>
+  <div class="category"><div class="cat-icon blue">🧩</div><h3>Dopasowywanie</h3><p>Parowanie obrazków i ćwiczenia percepcji wzrokowej.</p></div>
+  <div class="category"><div class="cat-icon yellow">🍂</div><h3>Sezonowe</h3><p>Jesień, zima, wiosna, lato i materiały świąteczne.</p></div>
+</div></div></section>
+
+<section id="grafomotoryka"><div class="wrap"><div class="section-head"><h2>Grafomotoryka dla 3-latków</h2><p>Tu będziemy dodawać kolejne przygotowane przez nas karty pracy.</p></div>
+<div class="materials">
+  <article class="material"><div class="preview p1">↕️✏️</div><div class="material-body"><span class="label free">DARMOWE</span><h3>Linie pionowe</h3><p>Proste ćwiczenie prowadzenia ręki z góry na dół.</p><a class="download" href="materialy/grafomotoryka-3-latki-linie-pionowe.pdf">Pobierz PDF</a></div></article>
+  <article class="material"><div class="preview p2">↔️✏️</div><div class="material-body"><span class="label soon">WKRÓTCE</span><h3>Linie poziome</h3><p>Prowadzenie ręki od lewej do prawej strony.</p><span class="download disabled">Wkrótce</span></div></article>
+  <article class="material"><div class="preview p3">🌊✏️</div><div class="material-body"><span class="label soon">WKRÓTCE</span><h3>Duże fale</h3><p>Ćwiczenie płynnego ruchu dłoni i kontroli kredki.</p><span class="download disabled">Wkrótce</span></div></article>
+</div></div></section>
+
+<section id="emocje"><div class="wrap"><div class="section-head"><h2>Emocje dla 3-latków</h2><p>Proste materiały pomagające dziecku rozpoznawać podstawowe emocje.</p></div>
+<div class="materials">
+  <article class="material"><div class="preview p1">🙂😢😡</div><div class="material-body"><span class="label soon">WKRÓTCE</span><h3>Poznajemy emocje</h3><p>Szczęście, smutek, złość, strach i spokój.</p><span class="download disabled">Wkrótce</span></div></article>
+  <article class="material"><div class="preview p2">🧸🔎</div><div class="material-body"><span class="label soon">WKRÓTCE</span><h3>Dopasuj obrazki</h3><p>Proste dopasowywanie takich samych obrazków dla 3-latków.</p><span class="download disabled">Wkrótce</span></div></article>
+  <article class="material"><div class="preview p3">🍁❄️🌷</div><div class="material-body"><span class="label soon">WKRÓTCE</span><h3>Materiały sezonowe</h3><p>Karty pracy związane z porami roku i świętami.</p><span class="download disabled">Wkrótce</span></div></article>
+</div></div></section>
+
+<section id="kontakt"><div class="wrap"><div class="info"><h2>Przedszkolna Pracownia</h2><p>Strona jest stale rozwijana. Będą pojawiać się tutaj kolejne darmowe i płatne materiały PDF dla przedszkolaków.</p></div></div></section>
+</main>
+
+<footer><div class="wrap">© 2026 Przedszkolna Pracownia</div></footer>
+</body>
+</html>
